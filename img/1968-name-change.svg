@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Simple, beginner-friendly SVG illustrating the 1968 name change
+  from NM Electronics to Intel. Designed to be lightweight and clear.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
+  <title id="title">NM Electronics renamed Intel, 1968</title>
+  <desc id="desc">Stylized image showing an arrow from NM Electronics to Intel with the year 1968.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#0071C5" />
+      <stop offset="1" stop-color="#025a9c" />
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="b" />
+      <feComposite in="SourceGraphic" in2="b" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#bg)" rx="16" />
+
+  <!-- Left card: NM Electronics -->
+  <g transform="translate(64,110)">
+    <rect width="420" height="380" rx="12" fill="#fff" opacity="0.08" />
+    <text x="30" y="70" font-family="Inter, Arial, sans-serif" font-size="36" fill="#ffffff" font-weight="600">NM Electronics</text>
+    <text x="30" y="120" font-family="Inter, Arial, sans-serif" font-size="18" fill="#dbeffc">(earlier corporate name)</text>
+    <!-- decorative chip icon -->
+    <g transform="translate(30,160) scale(1.12)">
+      <rect x="0" y="0" width="120" height="80" rx="8" fill="#dbeffc" opacity="0.16" />
+      <rect x="8" y="8" width="104" height="64" rx="6" fill="#ffffff" opacity="0.06" />
+      <rect x="20" y="22" width="16" height="36" rx="2" fill="#ffffff" opacity="0.24" />
+      <rect x="44" y="22" width="16" height="36" rx="2" fill="#ffffff" opacity="0.24" />
+      <rect x="68" y="22" width="16" height="36" rx="2" fill="#ffffff" opacity="0.24" />
+    </g>
+    <text x="30" y="330" font-family="Inter, Arial, sans-serif" font-size="14" fill="#e6f6ff">Company renamed in 1968 to reflect a new focus on integrated circuits</text>
+  </g>
+
+  <!-- Arrow pointing to Intel -->
+  <g transform="translate(504,260)">
+    <path d="M20 20 L190 20" stroke="#fff" stroke-opacity="0.9" stroke-width="6" stroke-linecap="round" />
+    <path d="M170 12 L190 20 L170 28" fill="#fff" opacity="0.95" />
+  </g>
+
+  <!-- Right card: Intel -->
+  <g transform="translate(640,90)">
+    <rect width="420" height="420" rx="12" fill="#ffffff" opacity="0.04" />
+    <!-- 'Intel' text - stylized, not using Intel logo to avoid trademark reproduction -->
+    <text x="36" y="120" font-family="Inter, Arial, sans-serif" font-size="60" fill="#ffffff" font-weight="800">Intel</text>
+    <text x="36" y="170" font-family="Inter, Arial, sans-serif" font-size="18" fill="#dbeffc">(name adopted in 1968)</text>
+
+    <!-- explanatory text box -->
+    <g transform="translate(36,220)">
+      <rect width="340" height="120" rx="10" fill="#ffffff" opacity="0.06" />
+      <text x="18" y="36" font-family="Inter, Arial, sans-serif" font-size="16" fill="#e6f6ff">Robert Noyce and Gordon Moore renamed NM Electronics to</text>
+      <text x="18" y="62" font-family="Inter, Arial, sans-serif" font-size="16" fill="#e6f6ff">Intel, inspired by "Integrated Electronics", in 1968.</text>
+    </g>
+
+    <!-- Year badge -->
+    <circle cx="370" cy="60" r="36" fill="#00a6ff" />
+    <text x="370" y="68" font-family="Inter, Arial, sans-serif" font-size="20" text-anchor="middle" fill="#03304f" font-weight="700">1968</text>
+  </g>
+
+</svg>

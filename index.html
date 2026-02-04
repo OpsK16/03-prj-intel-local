@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intel: Sustainability Through the Ages</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header / Hero Section -->
+  <header class="hero">
+    <div class="hero-inner">
+      <!-- Intel logo (SVG) -->
+      <img src="img/intel-header-logo.svg" alt="Intel Logo" class="logo" />
+
+      <!-- Main Heading -->
+      <h1>
+        Sustainability Through the Ages
+      </h1>
+
+      <!-- Subheading / Description -->
+      <p class="lead">
+        Explore Intel's journey through time and learn how the company has
+        worked toward more sustainable practices across technology and the planet.
+      </p>
+    </div>
+  </header>
+
+  <!-- Timeline Cards Section -->
+  <main class="container">
+    <div class="timeline-wrapper">
+      <button class="nav prev" aria-label="Scroll left" type="button">‹</button>
+
+      <section class="timeline" aria-label="Intel sustainability timeline">
+
+        <!-- Card 1: 1968 -->
+        <article class="card">
+          <img src="img/1968-name-change.svg" alt="Illustration: NM Electronics renamed Intel (1968)" class="card-img" />
+          <div class="card-body">
+            <time datetime="1968">1968</time>
+            <h3>Intel Founded</h3>
+            <p>
+              Robert Noyce and Gordon Moore rename the newly formed company
+              NM Electronics to Intel Corporation, laying the foundation for
+              decades of technological innovation.
+            </p>
+          </div>
+        </article>
+
+        <!-- Card 2: 1971 -->
+        <article class="card">
+          <img src="img/2.jpg" alt="Intel 4004 microprocessor" class="card-img" />
+          <div class="card-body">
+            <time datetime="1971">1971</time>
+            <h3>First Microprocessor</h3>
+            <p>
+              Intel debuts the 4004, the world's first commercial microprocessor,
+              igniting the microprocessor revolution.
+            </p>
+          </div>
+        </article>
+
+        <!-- Card 3: 1978 -->
+        <article class="card">
+          <img src="img/3.jpg" alt="Early microprocessor architecture" class="card-img" />
+          <div class="card-body">
+            <time datetime="1978">1978</time>
+            <h3>8086 Processor</h3>
+            <p>
+              Launch of the 8086 processor, establishing the x86 architecture
+              that drives countless PCs and servers.
+            </p>
+          </div>
+        </article>
+
+        <!-- Card 4: 1985 -->
+        <article class="card">
+          <img src="img/4.jpg" alt="386 processor technical illustration" class="card-img" />
+          <div class="card-body">
+            <time datetime="1985">1985</time>
+            <h3>386 Processor</h3>
+            <p>
+              Intel introduces the 386 processor with 32-bit architecture,
+              ushering in a new era of performance for personal computers.
+            </p>
+          </div>
+        </article>
+
+        <!-- Card 5: 2006 -->
+        <article class="card">
+          <img src="img/1.jpg" alt="Factory or energy image" class="card-img" />
+          <div class="card-body">
+            <time datetime="2006">2006</time>
+            <h3>Peak GHG Emissions</h3>
+            <p>
+              Intel records its highest annual greenhouse gas emissions. In
+              the years that follow, the company invests in renewable energy,
+              efficiency, and emissions reductions.
+            </p>
+          </div>
+        </article>
+
+        <!-- Card 6: 2020 -->
+        <article class="card">
+          <img src="img/2.jpg" alt="Sustainability strategy image" class="card-img" />
+          <div class="card-body">
+            <time datetime="2020">2020</time>
+            <h3>RISE Strategy</h3>
+            <p>
+              Intel launches its RISE (Responsible, Inclusive, Sustainable,
+              Enabling) strategy and 2030 goals to accelerate climate action
+              and sustainable practices.
+            </p>
+          </div>
+        </article>
+
+        <!-- Card 7: 2022 -->
+        <article class="card">
+          <img src="img/3.jpg" alt="Net-zero commitment" class="card-img" />
+          <div class="card-body">
+            <time datetime="2022">2022</time>
+            <h3>Net-Zero By 2040</h3>
+            <p>
+              Intel announces a commitment to achieve net-zero greenhouse gas
+              emissions (Scope 1 and 2) across global operations by 2040.
+            </p>
+          </div>
+        </article>
+
+        <!-- Card 8: 2023 -->
+        <article class="card">
+          <img src="img/4.jpg" alt="Renewable electricity" class="card-img" />
+          <div class="card-body">
+            <time datetime="2023">2023</time>
+            <h3>Renewable Electricity</h3>
+            <p>
+              The company achieves 99% renewable electricity usage worldwide,
+              reducing carbon intensity across operations.
+            </p>
+          </div>
+        </article>
+
+        <!-- Card 9: 2024 -->
+        <article class="card">
+          <img src="img/1.jpg" alt="Sustainability summit" class="card-img" />
+          <div class="card-body">
+            <time datetime="2024">2024</time>
+            <h3>Sustainability Summit</h3>
+            <p>
+              Intel hosts a Sustainability Summit to bring together suppliers,
+              policymakers, and industry leaders to accelerate sustainable
+              semiconductor manufacturing.
+            </p>
+          </div>
+        </article>
+
+      </section>
+
+      <button class="nav next" aria-label="Scroll right" type="button">›</button>
+    </div>
+
+    <p class="hint">Scroll horizontally to explore the timeline — <strong>hover</strong> a card to reveal details (desktop), or tap a card on mobile.</p>
+  </main>
+
+  <script>
+    (function(){
+      const timeline = document.querySelector('.timeline');
+      const prev = document.querySelector('.nav.prev');
+      const next = document.querySelector('.nav.next');
+      if (!timeline) return;
+      const cards = Array.from(timeline.querySelectorAll('.card'));
+      const getGap = () => parseInt(getComputedStyle(timeline).gap || 18);
+      const cardWidth = () => (cards[0]?.offsetWidth || 320) + getGap();
+
+      function currentIndex(){
+        const cw = cardWidth();
+        return Math.round(timeline.scrollLeft / cw);
+      }
+
+      function scrollToIndex(index){
+        index = Math.max(0, Math.min(cards.length - 1, index));
+        const target = cards[index];
+        if (!target) return;
+        timeline.scrollTo({ left: target.offsetLeft - parseInt(getComputedStyle(timeline).paddingLeft || 48), behavior: 'smooth' });
+      }
+
+      next?.addEventListener('click', ()=> scrollToIndex(currentIndex() + 1));
+      prev?.addEventListener('click', ()=> scrollToIndex(currentIndex() - 1));
+
+      // keyboard support when wrapper is focused
+      const wrapper = document.querySelector('.timeline-wrapper');
+      if (wrapper) {
+        wrapper.setAttribute('tabindex','0');
+        wrapper.addEventListener('keydown', (e)=>{
+          if (e.key === 'ArrowRight') { e.preventDefault(); scrollToIndex(currentIndex() + 1); }
+          if (e.key === 'ArrowLeft') { e.preventDefault(); scrollToIndex(currentIndex() - 1); }
+        });
+      }
+
+      // update nav disabled state
+      function updateNav(){
+        const idx = currentIndex();
+        if (prev) prev.disabled = idx <= 0;
+        if (next) next.disabled = idx >= cards.length - 1;
+        if (prev) prev.style.opacity = prev.disabled ? '0.5' : '0.95';
+        if (next) next.style.opacity = next.disabled ? '0.5' : '0.95';
+      }
+      timeline.addEventListener('scroll', ()=> window.requestAnimationFrame(updateNav));
+      window.addEventListener('resize', updateNav);
+      updateNav();
+    })();
+  </script>
+</body>
+</html>

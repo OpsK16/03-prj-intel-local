@@ -1,0 +1,210 @@
+/* Basic font and color variables */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+  /* Intel brand color (primary) and supportive tones */
+  --intel-blue: #0071C5; /* primary Intel blue */
+  --intel-deep: #025a9c; /* darker shade */
+  --accent: #00a6ff;
+  --muted: #6b7280;
+  --bg: #f6f8fb;
+}
+
+/* Page reset and base styles */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: #102a43;
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+/* Header / Hero styles */
+.hero {
+  background: linear-gradient(180deg, var(--intel-blue), var(--intel-deep));
+  color: #fff;
+  padding: 48px 16px;
+  text-align: center;
+}
+.hero-inner { max-width: 900px; margin: 0 auto; }
+.logo { width: 140px; height: auto; display: block; margin: 0 auto 12px; }
+.hero h1 { margin: 8px 0 8px; font-size: 2rem; }
+.hero .lead { opacity: 0.95; margin: 0 auto; max-width: 760px; }
+
+/* Main container */
+.container { max-width: 1100px; margin: 32px auto; padding: 0 16px; }
+
+/* Timeline layout - horizontal scroll with snap for easy browsing */
+.timeline-wrapper { position: relative; }
+.timeline {
+  display: flex;
+  flex-wrap: nowrap; /* single row, scroll horizontally */
+  gap: 18px;
+  padding: 12px 48px; /* leave room for nav buttons */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory; /* nicer scrolling on modern browsers */
+  scroll-behavior: smooth;
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.timeline::-webkit-scrollbar { display: none; } /* hide scrollbar in WebKit */
+
+/* Navigation chevrons (overlayed on each side of the timeline) */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(2, 42, 67, 0.64);
+  border: none;
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 12;
+  box-shadow: 0 6px 18px rgba(2, 42, 67, 0.18);
+  transition: opacity 180ms ease, transform 180ms ease;
+  opacity: 0.85;
+}
+.nav.prev { left: 8px; }
+.nav.next { right: 8px; }
+.nav:hover { transform: translateY(-50%) scale(1.04); opacity: 1; }
+.nav:active { transform: translateY(-50%) scale(0.98); }
+.nav:focus { outline: 3px solid rgba(0, 118, 204, 0.18); }
+
+/* Hide nav on small touch screens to avoid covering content */
+@media (hover: none) and (pointer: coarse) {
+  .nav { display: none; }
+}
+
+/* Card styles - each card is fixed-width and won't shrink */
+.card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(16, 42, 67, 0.06);
+  overflow: hidden; /* clip the card so overlays stay inside */
+  position: relative; /* needed for absolute positioned body */
+  flex: 0 0 380px; /* larger width so images fit better */
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start; /* align at start when scrolling */
+}
+.card + .card { margin-left: 10px; }
+.card:hover, .card:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(16, 42, 67, 0.12);
+}
+
+/* Image sits above the content; we add a dark overlay on hover and make text bolder */
+.card-img {
+  width: 100%;
+  height: 260px; /* taller frame to encompass SVG height */
+  object-fit: contain; /* ensure the full image fits inside without cropping */
+  display: block;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  position: relative;
+  z-index: 2;
+  transition: opacity 260ms ease, transform 260ms ease;
+}
+
+/* Gradient overlay used to darken images on hover for better contrast */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: linear-gradient(180deg, rgba(2,42,67,0.0) 0%, rgba(2,42,67,0.55) 100%);
+  opacity: 0;
+  transition: opacity 260ms ease;
+  pointer-events: none;
+  border-radius: 10px;
+}
+
+/* Card body (details) is positioned under the image so text appears "behind" when image fades */
+.card-body {
+  position: absolute;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  padding: 20px;
+  z-index: 4; /* above overlay and image */
+  color: #ffffff; /* white text for contrast */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* place text at bottom */
+  opacity: 0; /* hidden initially on hover-capable devices */
+  transform: translateY(6px);
+  transition: opacity 240ms ease, transform 240ms ease;
+  text-shadow: 0 8px 28px rgba(2, 42, 67, 0.75);
+}
+
+/* Subtle backdrop under the text (now stronger) to improve legibility on busy images */
+.card-body .meta {
+  background: rgba(2, 42, 67, 0.72);
+  padding: 12px 14px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+/* For hover-capable devices: fade the image, reveal overlay, and show the details */
+@media (hover: hover) {
+  .card-body { opacity: 0; }
+  .card:hover .card-img, .card:focus-within .card-img { opacity: 0.36; transform: scale(1.02); }
+  .card:hover::after, .card:focus-within::after { opacity: 1; }
+  .card:hover .card-body, .card:focus-within .card-body {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* On touch devices, show details by default and keep image opacity normal */
+@media (hover: none) {
+  .card-body { opacity: 1; transform: none; }
+}
+
+.card time { display: inline-block; font-size: 0.9rem; color: #d9f4ff; font-weight: 700; }
+.card h3 { margin: 8px 0 6px; color: #fff; font-weight: 800; font-size: 1.05rem; }
+.card p { margin: 0; color: #e6f6ff; font-weight: 600; line-height: 1.3; }
+
+/* Small hint at bottom - make clear it's horizontal */
+.hint { text-align: center; color: var(--muted); margin-top: 12px; }
+
+/* Responsive tweaks for grid fallback on narrow screens */
+@media (max-width: 719px) {
+  .timeline { gap: 14px; }
+  .card { flex: 0 0 82%; }
+}
+@media (min-width: 1024px) {
+  .hero h1 { font-size: 2.6rem; }
+  .card-img { height: 220px; }
+}
+
+/* Accessibility: focus outline for keyboard users */
+.card:focus-within { outline: 3px solid rgba(0, 118, 204, 0.12); }
+
+/* Small hint at bottom */
+.hint { text-align: center; color: var(--muted); margin-top: 12px; }
+
+/* Responsive tweaks */
+@media (min-width: 720px) {
+  .card { width: calc(50% - 18px); }
+}
+@media (min-width: 1024px) {
+  .hero h1 { font-size: 2.6rem; }
+  .card-img { height: 220px; }
+}
+
+/* Accessibility: focus outline for keyboard users */
+.card:focus-within { outline: 3px solid rgba(0, 118, 204, 0.12); }
+
+/* Notes for students (beginner-friendly):
+ - We used CSS variables for colors to make changes easy.
+ - Flexbox is used to wrap cards; it's simpler than CSS Grid for beginners.
+ - If you have Intel's proprietary font (Intel Clear), you can replace the font-family above.
+*/

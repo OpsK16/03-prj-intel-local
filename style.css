@@ -208,3 +208,54 @@ body {
  - Flexbox is used to wrap cards; it's simpler than CSS Grid for beginners.
  - If you have Intel's proprietary font (Intel Clear), you can replace the font-family above.
 */
+
+/* Accessibility helper */
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* Modal styles */
+.modal-overlay { position: fixed; inset: 0; background: rgba(2,42,67,0.6); display: flex; align-items: center; justify-content: center; z-index: 1000; padding: 20px; }
+.modal-overlay[aria-hidden="true"] { display: none; }
+.modal { background: #fff; max-width: 540px; width: 100%; border-radius: 10px; padding: 20px; box-shadow: 0 12px 32px rgba(2,42,67,0.28); position: relative; }
+.modal-close { position: absolute; top: 12px; right: 12px; background: transparent; border: none; font-size: 18px; cursor: pointer; }
+.modal-tabs { display:flex; gap:8px; margin:12px 0; }
+.tab { padding:8px 12px; background:#f1f5f9; border-radius:8px; border: none; cursor: pointer; }
+.tab.active { background: var(--intel-blue); color: #fff; }
+.form-row { display:flex; flex-direction: column; gap:6px; margin-bottom:12px; }
+.form-row input { padding:10px; border:1px solid #d1d5db; border-radius:6px; font-size:1rem; }
+.hidden { display:none !important; }
+.form-actions { display:flex; gap:8px; justify-content:flex-end; margin-top:12px; }
+.btn { background: var(--intel-blue); color: #fff; border: none; padding:10px 14px; border-radius:8px; cursor:pointer; }
+.btn-secondary { background:#e6edf6; color:#023a5b; }
+.btn-link { background:none; border:none; color:inherit; text-decoration: underline; cursor:pointer; }
+.site-footer { border-top:1px solid #e6eef8; color: var(--muted); font-size:0.95rem; display:block; }
+.footer-link { margin-left: 12px; color: var(--muted); text-decoration: none; }
+
+/* Subscribe card */
+.subscribe-card { background: #fff; border-radius: 12px; padding: 20px; display: flex; align-items: center; gap: 18px; box-shadow: 0 8px 24px rgba(2,42,67,0.06); border: 1px solid #e6eef8; border-inline-start: 6px solid var(--accent); padding-inline-start: 18px; }
+
+/* Goal cards (three-column area) */
+.goal-card { background: #fff; border-radius: 12px; border: 1px solid #e6eef8; box-shadow: 0 8px 18px rgba(2,42,67,0.06); }
+.goal-card .goal-body h3 { margin: 0 0 8px; }
+.goal-card .goal-body p { color: #334155; }
+.goal-card .btn { border-radius: 8px; }
+
+/* Icon/media above each goal title */
+.goal-media { display:flex; align-items:center; justify-content:center; width:100%; }
+.goal-media svg { display:block; width:72px; height:72px; }
+
+/* Ensure logical spacing for LTR/RTL languages */
+.goal-card .goal-body { padding-inline-start: 1rem; padding-inline-end: 1rem; }
+.goal-card .goal-body h3, .goal-card .goal-body p { text-align: start; }
+
+@media (max-width: 720px) {
+  .goal-card { text-align: start; }
+}
+.subscribe-card .subscribe-left { flex: 1; }
+.subscribe-card .subscribe-right { display:flex; flex-direction:column; gap:8px; margin-inline-start: auto; }
+.subscribe-card .btn-lg { padding: 12px 20px; font-size: 1rem; border-radius: 10px; }
+
+@media (max-width: 720px) {
+  .subscribe-card { flex-direction: column; align-items: stretch; }
+  .subscribe-card .subscribe-right { align-items: flex-start; }
+}
+

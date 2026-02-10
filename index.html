@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Intel: Sustainability Through the Ages</title>
+  <!-- Bootstrap 5 CSS (for responsive grid and utilities) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkQb5Y2vQvP0Q6m0aQ5i6iQ8Jw5e0a4uH2v3l0n5mQ5aJwY5G6d2aK" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -163,6 +165,158 @@
     <p class="hint">Scroll horizontally to explore the timeline — <strong>hover</strong> a card to reveal details (desktop), or tap a card on mobile.</p>
   </main>
 
+  <!-- New section: three-column responsive layout (timeline-style cards) -->
+  <section id="three-columns" class="container py-5" role="region" aria-labelledby="three-columns-title">
+    <div class="d-flex justify-content-end mb-3 align-items-center">
+      <label for="lang-select" class="visually-hidden">Language</label>
+      <select id="lang-select" class="form-select w-auto me-2" aria-label="Language select">
+        <option value="en">English</option>
+        <option value="ar">العربية</option>
+        <option value="es">Español</option>
+        <option value="fr">Français</option>
+        <option value="ko">한국어</option>
+        <option value="zh-CN">中文 (简体)</option>
+        <option value="de">Deutsch</option>
+        <option value="he">עברית</option>
+      </select>
+      <!-- Required container for Google Translate widget (kept visually hidden). -->
+      <div id="google_translate_element" class="visually-hidden" aria-hidden="true"></div>
+    </div>
+
+    <h2 id="three-columns-title" class="h4 mb-4 text-start" data-i18n="three.title">Section title</h2>
+
+    <div class="row g-4">
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="goal-card h-100 d-flex flex-column" aria-labelledby="col1-title">
+          <div class="goal-body p-3 d-flex flex-column h-100">
+            <div class="goal-media mb-3" aria-hidden="true">
+              <!-- Simple inline SVG icon for net-zero operations -->
+              <svg width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+                <circle cx="12" cy="12" r="10" stroke="#0071C5" stroke-width="1.6" fill="#e6f6ff" />
+                <path d="M6 12a6 6 0 0 1 6-6v6z" fill="#00A6FF" />
+                <path d="M12 18a6 6 0 0 0 6-6h-6z" fill="#025A9C" />
+              </svg>
+            </div>
+            <h3 id="col1-title" class="h5 mb-3 text-start" dir="auto" data-i18n="three.col1.title">Net-zero operations</h3>
+            <p class="flex-grow-1 text-start mb-3" dir="auto" data-i18n="three.col1.text">Intel is working to reach net-zero greenhouse gas emissions across its global operations by 2040. Actions include deep energy-efficiency upgrades, low‑carbon manufacturing process improvements, electrifying facility fleets, and partnering with suppliers to cut upstream emissions.</p>
+            <div class="mt-auto text-start">
+              <a href="#" class="btn btn-outline-primary" data-i18n="three.col1.link">Learn more</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="goal-card h-100 d-flex flex-column" aria-labelledby="col2-title">
+          <div class="goal-body p-3 d-flex flex-column h-100">
+            <div class="goal-media mb-3" aria-hidden="true">
+              <!-- Inline SVG for renewable energy -->
+              <svg width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+                <rect x="2" y="14" width="20" height="6" rx="1" fill="#e6f6ff" stroke="#0071C5" stroke-width="1.2" />
+                <path d="M12 2v10" stroke="#00A6FF" stroke-width="1.6" stroke-linecap="round" />
+                <path d="M8 6l8 4" stroke="#025A9C" stroke-width="1.4" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3 id="col2-title" class="h5 mb-3 text-start" dir="auto" data-i18n="three.col2.title">Renewable energy</h3>
+            <p class="flex-grow-1 text-start mb-3" dir="auto" data-i18n="three.col2.text">Intel is accelerating the transition to 100% renewable electricity through long‑term power purchase agreements, on‑site solar and storage projects, and grid partnerships that help decarbonize local electricity systems.</p>
+            <div class="mt-auto text-start">
+              <a href="#" class="btn btn-outline-primary" data-i18n="three.col2.link">Learn more</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="goal-card h-100 d-flex flex-column" aria-labelledby="col3-title">
+          <div class="goal-body p-3 d-flex flex-column h-100">
+            <div class="goal-media mb-3" aria-hidden="true">
+              <!-- Inline SVG for circular economy -->
+              <svg width="72" height="72" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" stroke="#0071C5" stroke-width="1.4" fill="#eaf8ff" />
+                <path d="M16 8a6 6 0 0 0-8 8" stroke="#025A9C" stroke-width="1.6" stroke-linecap="round" />
+                <path d="M8 16v-4h4" stroke="#00A6FF" stroke-width="1.4" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3 id="col3-title" class="h5 mb-3 text-start" dir="auto" data-i18n="three.col3.title">Circular economy</h3>
+            <p class="flex-grow-1 text-start mb-3" dir="auto" data-i18n="three.col3.text">Designing products and factories for circularity: reducing waste in manufacturing, expanding take‑back and refurbishment programs, increasing recycled material use, and eliminating unnecessary or hazardous materials.</p>
+            <div class="mt-auto text-start">
+              <a href="#" class="btn btn-outline-primary" data-i18n="three.col3.link">Learn more</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscription section and footer -->
+  <section id="subscribe" class="container py-5" role="region" aria-labelledby="subscribe-title">
+    <div class="subscribe-card">
+      <div class="subscribe-left">
+        <h2 id="subscribe-title" class="h4 mb-2 text-start" data-i18n="subscribe.title">Subscribe to Intel's Sustainability Newsletter</h2>
+        <p class="mb-0 text-start" data-i18n="subscribe.desc">Stay informed with monthly updates. Choose to create an account or just provide your email.</p>
+      </div>
+
+      <div class="subscribe-right text-end">
+        <button id="subscribe-btn" class="btn btn-primary btn-lg" type="button" aria-haspopup="dialog" data-i18n="subscribe.button">Subscribe</button>
+        <div class="subscribe-note small text-muted mt-2" data-i18n="subscribe.note">No spam. Unsubscribe anytime.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal (hidden) -->
+  <div id="subscribe-modal" class="modal-overlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="subscribe-modal-title">
+      <button class="modal-close" aria-label="Close">✕</button>
+      <h3 id="subscribe-modal-title" class="h5 text-start" data-i18n="subscribe.modal.title">Subscribe</h3>
+      <p class="text-start" data-i18n="subscribe.modal.desc">Create an account or enter your email to receive the newsletter. (Placeholder)</p>
+
+      <div class="modal-tabs" role="tablist" aria-label="Subscribe options">
+        <button class="tab active" data-tab="email" role="tab" aria-selected="true" data-i18n="subscribe.tab.email">Email only</button>
+        <button class="tab" data-tab="account" role="tab" aria-selected="false" data-i18n="subscribe.tab.account">Create account</button>
+      </div>
+
+      <form id="subscribe-form">
+        <div class="form-row" data-panel="email">
+          <label for="subscribe-email" data-i18n="subscribe.form.emailLabel">Email address</label>
+          <input id="subscribe-email" type="email" required placeholder="name@example.com" />
+        </div>
+
+        <div class="form-row hidden" data-panel="account">
+          <label for="acct-name" data-i18n="subscribe.form.nameLabel">Full name</label>
+          <input id="acct-name" type="text" placeholder="Jane Doe" />
+
+          <label for="acct-email" data-i18n="subscribe.form.emailLabel">Email address</label>
+          <input id="acct-email" type="email" placeholder="name@example.com" />
+
+          <label for="acct-password" data-i18n="subscribe.form.passwordLabel">Password</label>
+          <input id="acct-password" type="password" placeholder="••••••••" />
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" id="subscribe-cancel" data-i18n="subscribe.cancel">Cancel</button>
+          <button type="submit" class="btn btn-primary" data-i18n="subscribe.submit">Subscribe</button>
+        </div>
+      </form>
+
+      <div id="subscribe-thanks" class="hidden" role="status" aria-live="polite">
+        <p data-i18n="subscribe.thanks">Thanks! (This is a placeholder confirmation.)</p>
+        <button class="btn" id="subscribe-close-ok" data-i18n="subscribe.close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer container py-4" role="contentinfo">
+    <div class="d-flex justify-content-between align-items-center">
+      <div>&copy; Intel Corporation</div>
+      <nav aria-label="Footer">
+        <a href="#" class="footer-link">Privacy Policy</a>
+        <a href="#" class="footer-link">Terms of Use</a>
+        <button class="footer-link btn-link" id="contact-btn">Contact</button>
+      </nav>
+    </div>
+  </footer>
+
   <script>
     (function(){
       const timeline = document.querySelector('.timeline');
@@ -182,19 +336,27 @@
         index = Math.max(0, Math.min(cards.length - 1, index));
         const target = cards[index];
         if (!target) return;
-        timeline.scrollTo({ left: target.offsetLeft - parseInt(getComputedStyle(timeline).paddingLeft || 48), behavior: 'smooth' });
+        // Use scrollIntoView with inline center - this handles RTL more consistently across browsers
+        target.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
       }
 
-      next?.addEventListener('click', ()=> scrollToIndex(currentIndex() + 1));
-      prev?.addEventListener('click', ()=> scrollToIndex(currentIndex() - 1));
+      next?.addEventListener('click', ()=> {
+        const isRTL = document.documentElement.dir === 'rtl';
+        scrollToIndex(currentIndex() + (isRTL ? -1 : 1));
+      });
+      prev?.addEventListener('click', ()=> {
+        const isRTL = document.documentElement.dir === 'rtl';
+        scrollToIndex(currentIndex() + (isRTL ? 1 : -1));
+      });
 
       // keyboard support when wrapper is focused
       const wrapper = document.querySelector('.timeline-wrapper');
       if (wrapper) {
         wrapper.setAttribute('tabindex','0');
         wrapper.addEventListener('keydown', (e)=>{
-          if (e.key === 'ArrowRight') { e.preventDefault(); scrollToIndex(currentIndex() + 1); }
-          if (e.key === 'ArrowLeft') { e.preventDefault(); scrollToIndex(currentIndex() - 1); }
+          const isRTL = document.documentElement.dir === 'rtl';
+          if (e.key === 'ArrowRight') { e.preventDefault(); scrollToIndex(currentIndex() + (isRTL ? -1 : 1)); }
+          if (e.key === 'ArrowLeft') { e.preventDefault(); scrollToIndex(currentIndex() + (isRTL ? 1 : -1)); }
         });
       }
 
@@ -206,9 +368,335 @@
         if (prev) prev.style.opacity = prev.disabled ? '0.5' : '0.95';
         if (next) next.style.opacity = next.disabled ? '0.5' : '0.95';
       }
+
+      // update direction-specific UI (icons and aria labels)
+      function updateDirection(){
+        const isRTL = document.documentElement.dir === 'rtl';
+        if (prev) {
+          prev.setAttribute('aria-label', isRTL ? 'Scroll right' : 'Scroll left');
+          prev.textContent = isRTL ? '›' : '‹';
+        }
+        if (next) {
+          next.setAttribute('aria-label', isRTL ? 'Scroll left' : 'Scroll right');
+          next.textContent = isRTL ? '‹' : '›';
+        }
+      }
+
+      // expose a hook so other scripts (e.g., language switcher) can notify of dir changes
+      window.onLanguageDirectionChange = function(){ updateDirection(); updateNav(); };
+
       timeline.addEventListener('scroll', ()=> window.requestAnimationFrame(updateNav));
       window.addEventListener('resize', updateNav);
       updateNav();
+      updateDirection();
+    })();
+  </script>
+
+  <!-- Simple i18n + auto-translate integration script -->
+  <script>
+    (function(){
+      const translations = {
+        en: {
+          'three.title': 'Intel sustainability goals',
+          'three.col1.title': 'Net-zero operations',
+          'three.col1.text': "Intel is working to reach net-zero greenhouse gas emissions across its global operations by 2040. Actions include deep energy-efficiency upgrades, low‑carbon manufacturing improvements, electrifying facility fleets, and partnering with suppliers to cut upstream emissions.",
+          'three.col1.link': 'Learn more',
+          'three.col2.title': 'Renewable energy',
+          'three.col2.text': 'Intel is accelerating the transition to 100% renewable electricity through long‑term power purchase agreements, on‑site solar and storage projects, and grid partnerships that help decarbonize local electricity systems.',
+          'three.col2.link': 'Learn more',
+          'three.col3.title': 'Circular economy',
+          'three.col3.text': 'Designing products and factories for circularity: reducing waste in manufacturing, expanding take‑back and refurbishment programs, increasing recycled material use, and eliminating unnecessary or hazardous materials.',
+          'three.col3.link': 'Learn more',
+
+          /* Subscribe section */
+          'subscribe.title': "Subscribe to Intel's Sustainability Newsletter",
+          'subscribe.desc': "Stay informed with monthly updates. Choose to create an account or just provide your email.",
+          'subscribe.button': 'Subscribe',
+          'subscribe.modal.title': 'Subscribe',
+          'subscribe.modal.desc': 'Create an account or enter your email to receive the newsletter. (Placeholder)',
+          'subscribe.tab.email': 'Email only',
+          'subscribe.tab.account': 'Create account',
+          'subscribe.form.emailLabel': 'Email address',
+          'subscribe.form.nameLabel': 'Full name',
+          'subscribe.form.passwordLabel': 'Password',
+          'subscribe.cancel': 'Cancel',
+          'subscribe.submit': 'Subscribe',
+          'subscribe.thanks': 'Thanks! (This is a placeholder confirmation.)',
+          'subscribe.close': 'Close',
+          'subscribe.note': 'No spam. Unsubscribe anytime.'
+        },
+        ar: {
+          'three.title': 'اكتشف المزيد',
+          'three.col1.title': 'العمليات محايدة للكربون',
+          'three.col1.text': 'تعمل Intel على الوصول إلى صافي انبعاثات صفرية للغازات الدفيئة في عملياتها العالمية بحلول عام 2040. تتضمن الإجراءات تحسينات عميقة في كفاءة الطاقة، تحسينات في عمليات التصنيع منخفضة الكربون، تحويل أساطيل المنشآت إلى الكهرباء، والشراكة مع الموردين لتقليل الانبعاثات في السلسلة التوريدية.',
+          'three.col1.link': 'تعرف على المزيد',
+          'three.col2.title': 'الطاقة المتجددة',
+          'three.col2.text': 'تسرّع Intel الانتقال إلى كهرباء متجددة بنسبة 100٪ عبر اتفاقيات شراء طاقة طويلة الأجل، ومشروعات الطاقة الشمسية والتخزين في الموقع، وشراكات مع الشبكات المحلية لتسريع إزالة الكربون من مصادر الكهرباء.',
+          'three.col2.link': 'تعرف على المزيد',
+          'three.col3.title': 'الاقتصاد الدائري',
+          'three.col3.text': 'تصميم المنتجات والمصانع لدعم الاقتصاد الدائري: تقليل النفايات في التصنيع، توسيع برامج الاسترجاع وإعادة التأهيل، زيادة استخدام المواد المعاد تدويرها، والقضاء على المواد غير الضرورية أو الضارة.',
+          'three.col3.link': 'تعرف على المزيد',
+
+          /* Subscribe section (Arabic) */
+          'subscribe.title': 'اشترك في النشرة الإخبارية للاستدامة',
+          'subscribe.desc': 'ابق على اطلاع من خلال تحديثات شهرية. اختر إنشاء حساب أو إدخال بريدك الإلكتروني فقط.',
+          'subscribe.button': 'اشترك',
+          'subscribe.modal.title': 'الاشتراك',
+          'subscribe.modal.desc': 'أنشئ حسابًا أو أدخل بريدك الإلكتروني لتلقي النشرة الإخبارية. (عنصر نائب)',
+          'subscribe.tab.email': 'البريد الإلكتروني فقط',
+          'subscribe.tab.account': 'إنشاء حساب',
+          'subscribe.form.emailLabel': 'عنوان البريد الإلكتروني',
+          'subscribe.form.nameLabel': 'الاسم الكامل',
+          'subscribe.form.passwordLabel': 'كلمة المرور',
+          'subscribe.cancel': 'إلغاء',
+          'subscribe.submit': 'اشترك',
+          'subscribe.thanks': 'شكرًا! (تأكيد تجريبي)',
+          'subscribe.close': 'إغلاق',
+          'subscribe.note': 'لا رسائل مزعجة. يمكنك إلغاء الاشتراك في أي وقت.'
+        }
+      };
+
+      function applyTranslations(lang){
+        const doc = document.documentElement;
+        doc.lang = lang;
+        const short = lang.split('-')[0];
+        const isRTL = ['ar','he','fa','ur'].includes(short);
+        doc.dir = isRTL ? 'rtl' : 'ltr';
+
+        document.querySelectorAll('[data-i18n]').forEach(el=>{
+          const key = el.getAttribute('data-i18n');
+          if (translations[lang] && translations[lang][key]) {
+            el.textContent = translations[lang][key];
+          }
+        });
+
+        // Notify other parts of the UI that direction changed (so they can update icons/behavior)
+        if (window.onLanguageDirectionChange) window.onLanguageDirectionChange();
+      }
+
+      const select = document.getElementById('lang-select');
+      // On-demand Google Translate loader and helper
+      function loadGoogleTranslateOnce(cb){
+        if (window._googleTranslateLoaded) { if (cb) cb(); return; }
+        // queue callbacks until ready
+        window._gtCallbacks = window._gtCallbacks || [];
+        if (cb) window._gtCallbacks.push(cb);
+
+        window.googleTranslateElementInit = function() {
+          try {
+            /* global google */
+            new google.translate.TranslateElement({
+              pageLanguage: 'en',
+              includedLanguages: 'es,fr,ko,zh-CN,de,he,ar',
+              layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+          } catch(e) { /* ignore */ }
+
+          window._googleTranslateLoaded = true;
+          (window._gtCallbacks || []).forEach(fn => fn());
+          window._gtCallbacks = [];
+        };
+
+        const s = document.createElement('script');
+        s.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        s.async = true;
+        document.head.appendChild(s);
+      }
+
+      function resetGoogleTranslation(){
+        const gtCombo = document.querySelector('.goog-te-combo');
+        if (!gtCombo) return false;
+        try {
+          gtCombo.value = 'en';
+          gtCombo.dispatchEvent(new Event('change'));
+        } catch(e){ /* ignore */ }
+      }
+
+      function getGoogleTranslateCookie(){
+        try {
+          const m = document.cookie.match('(^|; )googtrans=\\/[^\/]+\/([^;]+)');
+          return m ? decodeURIComponent(m[2]) : null;
+        } catch(e){ return null; }
+      }
+
+      function clearGoogleTranslateCookie(){
+        try {
+          // clear basic cookie
+          document.cookie = 'googtrans=;path=/;expires=Thu, 01 Jan 1970 00:00:00 GMT';
+          // try clearing for root domain too (may fail for localhost)
+          var hostParts = location.hostname.split('.');
+          if (hostParts.length > 1) {
+            var domain = '.' + hostParts.slice(-2).join('.');
+            document.cookie = 'googtrans=;path=/;domain=' + domain + ';expires=Thu, 01 Jan 1970 00:00:00 GMT';
+          }
+        } catch(e){}
+      }
+
+      function savePreferredLang(lang){ try { localStorage.setItem('preferredLang', lang); } catch(e){} }
+      function clearPreferredLang(){ try { localStorage.removeItem('preferredLang'); } catch(e){} }
+
+      function setGoogleTranslateCookie(fromLang, toLang){
+        // Set googtrans cookie so the Google widget will respect the desired translation on init.
+        try {
+          // set for current domain and root
+          document.cookie = 'googtrans=/' + fromLang + '/' + toLang + ';path=/';
+          var hostParts = location.hostname.split('.');
+          if (hostParts.length > 1) {
+            var domain = '.' + hostParts.slice(-2).join('.');
+            document.cookie = 'googtrans=/' + fromLang + '/' + toLang + ';path=/;domain=' + domain;
+          }
+        } catch (e) { /* ignore cookie set errors */ }
+      }
+
+      function translatePageWithGoogle(lang){
+        // Ensure document language/dir are set before translating
+        const short = lang.split('-')[0];
+        const isRTL = ['ar','he','fa','ur'].includes(short);
+        document.documentElement.lang = lang;
+        document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+        if (window.onLanguageDirectionChange) window.onLanguageDirectionChange();
+
+        const trySet = ()=>{
+          const gtCombo = document.querySelector('.goog-te-combo');
+          if (!gtCombo) return false;
+          try {
+            gtCombo.value = lang;
+            gtCombo.dispatchEvent(new Event('change'));
+            return true;
+          } catch(e){ return false; }
+        };
+
+        if (!trySet()){
+          // If the widget isn't ready to accept programmatic change, set the cookie and reload the page to force translation
+          setGoogleTranslateCookie('en', lang);
+          savePreferredLang(lang);
+          // Reload to let Google Translate widget pick up the cookie and translate the page
+          setTimeout(()=> location.reload(), 250);
+        }
+      }
+
+      if (select) {
+        // When user changes the dropdown
+        select.addEventListener('change', (e)=>{
+          const lang = e.target.value;
+          const short = lang.split('-')[0];
+          const isRTL = ['ar','he','fa','ur'].includes(short);
+          document.documentElement.lang = lang;
+          document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+
+          if (translations[lang]) {
+            // If Google Translate was previously applied, reset it first
+            clearGoogleTranslateCookie();
+            savePreferredLang(lang);
+            // Reload to ensure any previous Google translation is cleared, then apply curated strings on next load
+            setTimeout(()=> location.reload(), 150);
+          } else {
+            // For languages without curated translations, use Google Translate as a fallback
+            // Keep the UI 'dir' correct and then ask Google to translate the page
+            if (window.onLanguageDirectionChange) window.onLanguageDirectionChange();
+            // set cookie and reload if necessary
+            setGoogleTranslateCookie('en', lang);
+            savePreferredLang(lang);
+            setTimeout(()=> location.reload(), 150);
+          }
+        });
+
+        // Initialize using stored preference, cookie, or browser preference
+        const cookieLang = getGoogleTranslateCookie();
+        const stored = (function(){ try{ return localStorage.getItem('preferredLang'); }catch(e){return null;} })();
+        const preferred = (stored || (navigator.languages && navigator.languages[0]) || navigator.language || 'en');
+        const short = preferred.split('-')[0];
+        const options = Array.from(select.options).map(o=>o.value);
+        let matched = cookieLang && options.includes(cookieLang) ? cookieLang : (options.find(v => v === preferred || v.split('-')[0] === short) || 'en');
+        // If a stored preference exists and is in the options, prefer it
+        if (stored && options.includes(stored)) matched = stored;
+
+        select.value = matched;
+
+        // If the page was previously translated via cookie, ensure Google is loaded to show translation
+        if (cookieLang && cookieLang === matched) {
+          loadGoogleTranslateOnce(()=>{});
+        } else if (translations[matched]) {
+          // apply curated translation
+          applyTranslations(matched);
+          // clear stored preference after applying
+          clearPreferredLang();
+        } else {
+          // No curated strings and no cookie - attempt to programmatically translate (this will set cookie+reload if needed)
+          loadGoogleTranslateOnce(()=> translatePageWithGoogle(matched));
+        }
+      }
+
+      // For programmatic control from console/tests
+      window.setLanguage = function(lang){
+        if (!document.getElementById('lang-select')) return;
+        document.getElementById('lang-select').value = lang;
+        document.getElementById('lang-select').dispatchEvent(new Event('change'));
+      };
+    })();
+  </script>
+
+  <!-- Subscribe modal behavior -->
+  <script>
+    (function(){
+      const modal = document.getElementById('subscribe-modal');
+      const openBtn = document.getElementById('subscribe-btn');
+      const closeButtons = () => modal ? modal.querySelectorAll('.modal-close, #subscribe-cancel, #subscribe-close-ok') : [];
+      const tabs = modal ? modal.querySelectorAll('.tab') : [];
+      const panels = modal ? modal.querySelectorAll('[data-panel]') : [];
+      const form = document.getElementById('subscribe-form');
+      const thanks = document.getElementById('subscribe-thanks');
+
+      function openModal(){
+        if (!modal) return;
+        modal.setAttribute('aria-hidden','false');
+        // focus the first input
+        const first = modal.querySelector('input:not([type=hidden])');
+        if (first) first.focus();
+      }
+      function closeModal(){
+        if (!modal) return;
+        modal.setAttribute('aria-hidden','true');
+        // reset form and UI after short delay
+        setTimeout(()=>{
+          form && form.reset();
+          if (form) form.classList.remove('hidden');
+          if (thanks) thanks.classList.add('hidden');
+        }, 200);
+      }
+
+      openBtn?.addEventListener('click', openModal);
+
+      // close via close buttons
+      Array.from(closeButtons()).forEach(btn => btn.addEventListener('click', closeModal));
+
+      // handle tab switching
+      Array.from(tabs).forEach(t => {
+        t.addEventListener('click', (e) => {
+          const target = t.getAttribute('data-tab');
+          Array.from(tabs).forEach(x => { x.classList.toggle('active', x === t); x.setAttribute('aria-selected', x === t ? 'true' : 'false'); });
+          Array.from(panels).forEach(p => p.classList.toggle('hidden', p.getAttribute('data-panel') !== target));
+        });
+      });
+
+      // form submit: show thanks message instead of sending anything
+      form?.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        if (form) form.classList.add('hidden');
+        if (thanks) thanks.classList.remove('hidden');
+        const ok = document.getElementById('subscribe-close-ok');
+        ok?.focus();
+      });
+
+      // close on escape
+      document.addEventListener('keydown', (e)=>{
+        if (e.key === 'Escape' && modal && modal.getAttribute('aria-hidden') === 'false') closeModal();
+      });
+
+      // contact button placeholder behavior
+      const contact = document.getElementById('contact-btn');
+      contact?.addEventListener('click', ()=> alert('Contact placeholder — in production this would open a contact form or mail client.'));
+
     })();
   </script>
 </body>
